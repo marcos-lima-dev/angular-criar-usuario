@@ -74,65 +74,64 @@
         </div>
       </form>
     </div>
-
     <!-- 3ª Coluna - Formulário 2 -->
-    <div class="col-span-1 px-3">
-      <h2 class="text-2xl font-bold">Informações Adicionais</h2>
-      <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
-        <div class="mb-4">
-          <label for="phone" class="block font-semibold text-orange-600">Telefone</label>
-          <input type="tel" id="phone" formControlName="phone" class="border rounded w-full p-2">
-          <small *ngIf="cadastroForm.get('phone')?.errors?.['invalidPhone'] && cadastroForm.get('phone')?.touched">
-            O telefone deve ter 10 ou 11 dígitos numéricos.
-          </small>
-        </div>
-        <div class="mb-4">
-          <label for="mobile" class="block font-semibold text-orange-600">Celular*</label>
-          <input type="tel" id="mobile" formControlName="mobile" class="border rounded w-full p-2" required>
-          <small *ngIf="cadastroForm.get('mobile')?.errors?.['required'] && cadastroForm.get('mobile')?.touched">
-            O celular é obrigatório.
-          </small>
-          <small *ngIf="cadastroForm.get('mobile')?.errors?.['invalidMobile'] && cadastroForm.get('mobile')?.touched">
-            O celular deve ter 11 dígitos numéricos.
-          </small>
-        </div>
-        <div class="mb-4 relative">
-          <label for="password" class="block font-semibold text-orange-600">Senha*</label>
-          <input type="{{passwordFieldType['password']}}" id="password" formControlName="password" class="border rounded w-full p-2 pr-10" required>
-          <i class="fa-solid" [ngClass]="passwordIcon['password']" (click)="togglePasswordVisibility('password')" class="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer text-orange-500"></i>
-          <small *ngIf="cadastroForm.get('password')?.errors?.['required'] && cadastroForm.get('password')?.touched">
-            A senha é obrigatória.
-          </small>
-          <small *ngIf="cadastroForm.get('password')?.errors?.['minlength'] && cadastroForm.get('password')?.touched">
-            A senha deve ter pelo menos 8 caracteres.
-          </small>
-          <small *ngIf="cadastroForm.get('password')?.errors?.['invalidPassword'] && cadastroForm.get('password')?.touched">
-            A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula e um número.
-          </small>
-        </div>
-        <div class="mb-4 relative">
-          <label for="confirm-password" class="block font-semibold text-orange-600">Confirmar Senha*</label>
-          <input type="{{passwordFieldType['confirmPassword']}}" id="confirm-password" formControlName="confirmPassword" class="border rounded w-full p-2 pr-10" required>
-          <i class="fa-solid" [ngClass]="passwordIcon['confirmPassword']" (click)="togglePasswordVisibility('confirmPassword')" class="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer text-orange-500"></i>
-          <small *ngIf="cadastroForm.get('confirmPassword')?.errors?.['required'] && cadastroForm.get('confirmPassword')?.touched">
-            A confirmação de senha é obrigatória.
-          </small>
-          <small *ngIf="cadastroForm.errors?.['mismatch']">As senhas não coincidem.</small>
-        </div>
-        <div class="mb-4">
-          <input type="checkbox" id="juridica">
-          <label for="juridica" class="inline ml-2">Fazer meu cadastro como pessoa jurídica</label>
-        </div>
-        <div class="mb-4">
-          <input type="checkbox" id="privacy-policy" required>
-          <label for="privacy-policy" class="inline ml-2">Política de Privacidade</label>
-        </div>
-        <div class="mb-4">
-          <button type="submit" class="bg-gradient-to-tl from-orange-700 via-orange-500 to-orange-300 text-white font-semibold py-2 px-4 rounded-md">
-            Criar usuário
-          </button>
-        </div>
-      </form> <!-- Fechando o formulário aqui -->
+<div class="col-span-1 px-3">
+  <h2 class="text-2xl font-bold">Informações Adicionais</h2>
+  <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+    <div class="mb-4">
+      <label for="phone" class="block font-semibold text-orange-600">Telefone</label>
+      <input type="tel" id="phone" formControlName="phone" class="border rounded w-full p-2">
+      <small *ngIf="cadastroForm.get('phone')?.errors?.['invalidPhone'] && cadastroForm.get('phone')?.touched">
+        O telefone deve ter 10 ou 11 dígitos numéricos.
+      </small>
     </div>
-  </div>
+    <div class="mb-4">
+      <label for="mobile" class="block font-semibold text-orange-600">Celular*</label>
+      <input type="tel" id="mobile" formControlName="mobile" class="border rounded w-full p-2" required>
+      <small *ngIf="cadastroForm.get('mobile')?.errors?.['required'] && cadastroForm.get('mobile')?.touched">
+        O celular é obrigatório.
+      </small>
+      <small *ngIf="cadastroForm.get('mobile')?.errors?.['invalidMobile'] && cadastroForm.get('mobile')?.touched">
+        O celular deve ter 11 dígitos numéricos.
+      </small>
+    </div>
+    <div class="mb-4 relative">
+      <label for="password" class="block font-semibold text-orange-600">Senha*</label>
+      <input type="{{passwordFieldType['password']}}" id="password" formControlName="password" class="border rounded w-full p-2 pr-10" required>
+      <i class="fa-solid" [ngClass]="passwordIcon['password']" (click)="togglePasswordVisibility('password')" class="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer text-orange-500"></i>
+      <small *ngIf="cadastroForm.get('password')?.errors?.['required'] && cadastroForm.get('password')?.touched">
+        A senha é obrigatória.
+      </small>
+      <small *ngIf="cadastroForm.get('password')?.errors?.['minlength'] && cadastroForm.get('password')?.touched">
+        A senha deve ter pelo menos 8 caracteres.
+      </small>
+      <small *ngIf="cadastroForm.get('password')?.errors?.['invalidPassword'] && cadastroForm.get('password')?.touched">
+        A senha deve conter pelo menos uma letra maiúscula, uma letra minúscula e um número.
+      </small>
+    </div>
+    <div class="mb-4 relative">
+      <label for="confirm-password" class="block font-semibold text-orange-600">Confirmar Senha*</label>
+      <input type="{{passwordFieldType['confirmPassword']}}" id="confirm-password" formControlName="confirmPassword" class="border rounded w-full p-2 pr-10" required>
+      <i class="fa-solid" [ngClass]="passwordIcon['confirmPassword']" (click)="togglePasswordVisibility('confirmPassword')" class="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer text-orange-500"></i>
+      <small *ngIf="cadastroForm.get('confirmPassword')?.errors?.['required'] && cadastroForm.get('confirmPassword')?.touched">
+        A confirmação de senha é obrigatória.
+      </small>
+      <small *ngIf="cadastroForm.errors?.['mismatch']">As senhas não coincidem.</small>
+    </div>
+    <div class="mb-4">
+      <input type="checkbox" id="juridica">
+      <label for="juridica" class="inline ml-2">Fazer meu cadastro como pessoa jurídica</label>
+    </div>
+    <div class="mb-4">
+      <p class="text-gray-700">Leia a nossa <a href="#" class="text-orange-600 underline">Política de Privacidade</a>.</p>
+      <input type="checkbox" id="privacy-policy" required>
+      <label for="privacy-policy" class="inline ml-2">Aceito os termos</label>
+    </div>
+    <div class="mb-4">
+      <button type="submit" class="bg-gradient-to-tl from-orange-700 via-orange-500 to-orange-300 text-white font-semibold py-2 px-4 rounded-md w-full">
+        Criar usuário
+      </button>
+    </div>
+  </form> <!-- Fechando o formulário aqui -->
 </div>
+
