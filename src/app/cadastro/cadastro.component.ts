@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class CadastroComponent {
   cadastroForm: FormGroup;
+  isMenuOpen = false; // Estado do menu
   passwordFieldType: { [key: string]: string } = {
     password: 'password',
     confirmPassword: 'password'
@@ -80,6 +81,10 @@ export class CadastroComponent {
       this.passwordFieldType[field] = 'password';
       this.passwordIcon[field] = 'fa-eye';
     }
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
   onSubmit() {

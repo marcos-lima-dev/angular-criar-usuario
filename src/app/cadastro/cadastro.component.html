@@ -2,21 +2,35 @@
   <!-- Topo -->
   <header class="flex justify-between items-center p-4">
     <img src="assets/logoipsum-330.svg" alt="Logo" class="h-12">
-    <nav class="space-x-4 text-lg">
+    <button (click)="toggleMenu()" class="md:hidden text-gray-700 p-2 rounded-md">
+      <i class="fas fa-bars"></i> <!-- Ícone de menu do FontAwesome -->
+    </button>
+    <nav class="hidden md:flex space-x-4 text-lg"> <!-- Barra de navegação visível em dispositivos grandes -->
       <a href="#" class="text-gray-700 hover:text-white hover:bg-orange-500 hover:rounded-md p-2">Planos</a>
       <a href="#" class="text-gray-700 hover:text-white hover:bg-orange-500 hover:rounded-md p-2">Acompanhar minhas compras</a>
       <a href="#" class="text-white font-semibold bg-gradient-to-tl from-orange-700 via-orange-500 to-orange-300 rounded-md p-2">Começar a Vender</a>
       <a href="#" class="text-gray-700 hover:text-white hover:bg-orange-500 hover:rounded-md p-2">Entrar</a>
     </nav>
+    <nav
+      [ngClass]="{'hidden': !isMenuOpen, 'block': isMenuOpen}"
+      class="absolute top-16 left-1/2 transform -translate-x-1/2 w-1/2 bg-white rounded-lg shadow-lg md:hidden"> <!-- Menu toggle para dispositivos móveis -->
+      <div class="flex flex-col space-y-2 p-4">
+        <a href="#" class="text-gray-700 p-2">Planos</a>
+        <a href="#" class="text-gray-700 p-2">Acompanhar minhas compras</a>
+        <a href="#" class="text-white font-semibold bg-gradient-to-tl from-orange-700 via-orange-500 to-orange-300 rounded-md p-2">Começar a Vender</a>
+        <a href="#" class="text-gray-700 p-2">Entrar</a>
+      </div>
+    </nav>
   </header>
+
   <hr class="my-4">
 
   <!-- Seção principal -->
   <div class="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
     <!-- 1ª Coluna -->
     <div class="col-span-1 px-3 h-full relative">
-      <img src="assets/imagem.jpg" alt="Imagem" class="w-full h-full object-cover p-2 rounded-[10px]">
-      <p class="absolute top-0 left-0 p-4 text-white">Um jeito novo de<br> conhecer marcas<br> e produtos!</p>
+      <img src="assets/imagem.jpg" alt="Imagem" class="w-full h-full object-cover p-2 rounded-2xl hidden sm:block">
+      <p class="absolute top-0 left-0 p-4 text-white hidden sm:block">Um jeito novo de<br> conhecer marcas<br> e produtos!</p>
     </div>
 
     <!-- 2ª Coluna - Formulário 1 -->
