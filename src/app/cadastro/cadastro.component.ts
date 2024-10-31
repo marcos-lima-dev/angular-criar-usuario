@@ -26,7 +26,7 @@ export class CadastroComponent {
     this.cadastroForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(3), Validators.pattern('^[a-zA-Z]*$')]],
       email: ['', [Validators.required, Validators.email]],
-      cpf: ['', [Validators.required]],
+      cpf: ['', [Validators.required, this.cpfValidator]], // Adicionando a validação aqui
       birthdate: [''],
       gender: ['', [Validators.required]],
       phone: ['', [this.phoneValidator]],
@@ -39,6 +39,7 @@ export class CadastroComponent {
       confirmPassword: ['', [Validators.required]]
     }, { validators: this.passwordMatchValidator });
   }
+
 
   // Validação de Senha
   passwordValidator(control: any) {
@@ -72,6 +73,14 @@ export class CadastroComponent {
     const valid = /^\d{11}$/.test(value);
     return valid ? null : { invalidMobile: true };
   }
+
+  // Validação do CPF (11 dígitos numéricos)
+  cpfValidator(control: any) {
+    const value = control.value;
+    const valid = /^\d{11}$/.test(value); // Verifica se o CPF tem exatamente 11 dígitos
+    return valid ? null : { invalidCpf: true };
+  }
+
 
   togglePasswordVisibility(field: string) {
     if (this.passwordFieldType[field] === 'password') {
